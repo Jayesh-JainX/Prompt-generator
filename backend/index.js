@@ -149,7 +149,7 @@ app.post("/api/generate/stream", async (req, res) => {
               content: userMessage,
             },
           ],
-          model: "meta-llama/Llama-4-Scout-17B-16E-Instruct:novita",
+          model: "meta-llama/Llama-3.1-8B-Instruct:novita",
           stream: true,
           max_tokens: 500,
           temperature: 0.7,
