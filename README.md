@@ -245,7 +245,7 @@ For support and questions:
 
 - Open an issue in the repository
 - Check the troubleshooting section above
-- Review the API documentation.
+- Review the API documentation
 
 ---
 
