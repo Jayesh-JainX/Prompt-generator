@@ -211,6 +211,8 @@ app.post("/api/generate/stream", async (req, res) => {
   }
 });
 
+app.get("/favicon.ico", (req, res) => res.status(204).end());
+
 app.post("/api/generate", async (req, res) => {
   try {
     const { text, context = "" } = req.body;
