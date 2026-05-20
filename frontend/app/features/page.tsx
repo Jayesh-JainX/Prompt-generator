@@ -1,22 +1,19 @@
 import type { Metadata } from "next";
-import {
-  Zap,
-  Brain,
-  Target,
-  Palette,
-  Shield,
-  Clock,
-  Globe,
-  Users,
-  Sparkles,
-  CheckCircle,
-  ArrowRight,
-  Star,
-  Lock,
-  RefreshCw,
-} from "lucide-react";
 import Link from "next/link";
 import Squares from "@/components/Squares";
+import {
+  FaArrowRight,
+  FaBrain,
+  FaCheckCircle,
+  FaClock,
+  FaGlobe,
+  FaLock,
+  FaPalette,
+  FaStar,
+  FaUsers,
+} from "react-icons/fa";
+import { FiRefreshCw, FiShield, FiTarget, FiZap } from "react-icons/fi";
+import { IoSparkles } from "react-icons/io5";
 
 export const metadata: Metadata = {
   title: "Features - PromptCue | Advanced AI Prompt Generator Capabilities",
@@ -29,7 +26,7 @@ export const metadata: Metadata = {
 export default function FeaturesPage() {
   const mainFeatures = [
     {
-      icon: <Brain className="w-8 h-8" />,
+      icon: <FaBrain className="w-8 h-8" />,
       title: "Advanced AI Engine",
       description:
         "Powered by cutting-edge language models that understand context and generate professional-quality prompts.",
@@ -42,7 +39,7 @@ export default function FeaturesPage() {
       gradient: "from-blue-500 to-indigo-500",
     },
     {
-      icon: <Zap className="w-8 h-8" />,
+      icon: <FiZap className="w-8 h-8" />,
       title: "Lightning Fast Generation",
       description:
         "Get professional prompts in seconds, not minutes. Our optimized system delivers results instantly.",
@@ -55,7 +52,7 @@ export default function FeaturesPage() {
       gradient: "from-orange-500 to-red-500",
     },
     {
-      icon: <Target className="w-8 h-8" />,
+      icon: <FiTarget className="w-8 h-8" />,
       title: "Precision Crafting",
       description:
         "Every prompt is carefully crafted to be specific, detailed, and effective for your exact needs.",
@@ -68,7 +65,7 @@ export default function FeaturesPage() {
       gradient: "from-emerald-500 to-teal-500",
     },
     {
-      icon: <Palette className="w-8 h-8" />,
+      icon: <FaPalette className="w-8 h-8" />,
       title: "Creative Intelligence",
       description:
         "AI that understands creativity and helps you unlock your artistic potential with better prompts.",
@@ -164,37 +161,37 @@ export default function FeaturesPage() {
 
   const technicalFeatures = [
     {
-      icon: <Shield className="w-6 h-6" />,
+      icon: <FiShield className="w-6 h-6" />,
       title: "100% Free Forever",
       description:
         "No hidden costs, no premium tiers, no credit card required. We believe creativity should be accessible to everyone.",
     },
     {
-      icon: <Lock className="w-6 h-6" />,
+      icon: <FaLock className="w-6 h-6" />,
       title: "Privacy First",
       description:
         "Your content is processed securely and never stored permanently. We respect your privacy and data.",
     },
     {
-      icon: <Globe className="w-6 h-6" />,
+      icon: <FaGlobe className="w-6 h-6" />,
       title: "No Signup Required",
       description:
         "Start creating immediately. No account creation, no email verification, no barriers to entry.",
     },
     {
-      icon: <Clock className="w-6 h-6" />,
+      icon: <FaClock className="w-6 h-6" />,
       title: "Always Available",
       description:
         "24/7 availability with 99.9% uptime. Create prompts whenever inspiration strikes.",
     },
     {
-      icon: <Users className="w-6 h-6" />,
+      icon: <FaUsers className="w-6 h-6" />,
       title: "Community Driven",
       description:
         "Built with feedback from 10,000+ creators. We evolve based on real user needs.",
     },
     {
-      icon: <RefreshCw className="w-6 h-6" />,
+      icon: <FiRefreshCw className="w-6 h-6" />,
       title: "Continuous Updates",
       description:
         "Regular improvements and new features based on user feedback and AI advancements.",
@@ -202,7 +199,7 @@ export default function FeaturesPage() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/30 to-purple-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800">
+    <div className="relative min-h-screen bg-linear-to-br from-slate-50 via-indigo-50/30 to-purple-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800">
       {/* Background Squares - full page coverage */}
       <div className="fixed inset-0 w-full h-full pointer-events-none z-0">
         <Squares
@@ -218,7 +215,7 @@ export default function FeaturesPage() {
         <div className="text-center mb-20">
           <h1 className="flex flex-wrap items-center justify-center text-5xl sm:text-6xl font-bold text-slate-800 dark:text-slate-200 mb-4 text-center">
             <span className="pb-2">Powerful</span>
-            <span className="pl-3 pb-2 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="pl-3 pb-2 bg-linear-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               Features
             </span>
           </h1>
@@ -241,7 +238,7 @@ export default function FeaturesPage() {
                 className="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border border-slate-200 dark:border-slate-700 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
               >
                 <div
-                  className={`w-16 h-16 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center text-white mb-6`}
+                  className={`w-16 h-16 bg-linear-to-r ${feature.gradient} rounded-2xl flex items-center justify-center text-white mb-6`}
                 >
                   {feature.icon}
                 </div>
@@ -257,7 +254,7 @@ export default function FeaturesPage() {
                       key={benefitIndex}
                       className="flex items-center space-x-3"
                     >
-                      <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+                      <FaCheckCircle className="w-5 h-5 text-emerald-500 shrink-0" />
                       <span className="text-slate-600 dark:text-slate-300">
                         {benefit}
                       </span>
@@ -316,7 +313,7 @@ export default function FeaturesPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {technicalFeatures.map((feature, index) => (
               <div key={index} className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-2xl flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-2xl flex items-center justify-center shrink-0">
                   <div className="text-indigo-600 dark:text-indigo-400">
                     {feature.icon}
                   </div>
@@ -366,27 +363,27 @@ export default function FeaturesPage() {
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Sparkles className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-linear-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <IoSparkles className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-4">
                   PromptCue
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-center justify-center space-x-2 text-emerald-500">
-                    <CheckCircle className="w-4 h-4" />
+                    <FaCheckCircle className="w-4 h-4" />
                     <span className="text-sm">No signup required</span>
                   </div>
                   <div className="flex items-center justify-center space-x-2 text-emerald-500">
-                    <CheckCircle className="w-4 h-4" />
+                    <FaCheckCircle className="w-4 h-4" />
                     <span className="text-sm">100% free forever</span>
                   </div>
                   <div className="flex items-center justify-center space-x-2 text-emerald-500">
-                    <CheckCircle className="w-4 h-4" />
+                    <FaCheckCircle className="w-4 h-4" />
                     <span className="text-sm">Advanced AI engine</span>
                   </div>
                   <div className="flex items-center justify-center space-x-2 text-emerald-500">
-                    <CheckCircle className="w-4 h-4" />
+                    <FaCheckCircle className="w-4 h-4" />
                     <span className="text-sm">Simple & intuitive</span>
                   </div>
                 </div>
@@ -398,19 +395,19 @@ export default function FeaturesPage() {
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-center justify-center space-x-2 text-emerald-500">
-                    <Star className="w-4 h-4" />
+                    <FaStar className="w-4 h-4" />
                     <span className="text-sm">Instant generation</span>
                   </div>
                   <div className="flex items-center justify-center space-x-2 text-emerald-500">
-                    <Star className="w-4 h-4" />
+                    <FaStar className="w-4 h-4" />
                     <span className="text-sm">Professional quality</span>
                   </div>
                   <div className="flex items-center justify-center space-x-2 text-emerald-500">
-                    <Star className="w-4 h-4" />
+                    <FaStar className="w-4 h-4" />
                     <span className="text-sm">Multiple use cases</span>
                   </div>
                   <div className="flex items-center justify-center space-x-2 text-emerald-500">
-                    <Star className="w-4 h-4" />
+                    <FaStar className="w-4 h-4" />
                     <span className="text-sm">24/7 availability</span>
                   </div>
                 </div>
@@ -421,7 +418,7 @@ export default function FeaturesPage() {
 
         {/* CTA Section */}
         <section className="text-center">
-          <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-12 text-white">
+          <div className="bg-linear-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-12 text-white">
             <h2 className="text-4xl font-bold mb-6">
               Ready to Experience the Difference?
             </h2>
@@ -436,7 +433,7 @@ export default function FeaturesPage() {
                 className="inline-flex items-center space-x-2 bg-white text-indigo-600 font-bold py-4 px-8 rounded-2xl hover:bg-indigo-50 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
               >
                 <span>Start Creating Now</span>
-                <ArrowRight className="w-5 h-5" />
+                <FaArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 href="/about"

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Shield, Lock, Eye, Users, RefreshCw, Mail } from "lucide-react";
-import Link from "next/link";
 import Squares from "@/components/Squares";
+import { FaEye, FaLock, FaUsers } from "react-icons/fa";
+import { FiRefreshCw } from "react-icons/fi";
 
 export const metadata: Metadata = {
   title: "Privacy Policy - PromptCue | How We Protect Your Data",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/30 to-purple-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800">
+    <div className="relative min-h-screen bg-linear-to-br from-slate-50 via-indigo-50/30 to-purple-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800">
       {/* Background Squares - full page coverage */}
       <div className="fixed inset-0 w-full h-full pointer-events-none z-0">
         <Squares
@@ -27,7 +27,7 @@ export default function PrivacyPage() {
       <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-16">
           <h1 className="flex flex-wrap items-center justify-center text-5xl sm:text-6xl font-bold text-slate-800 dark:text-slate-200 mb-4 text-center">
-            <span className="pr-3 pb-2 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="pr-3 pb-2 bg-linear-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               Privacy
             </span>
             <span className="pb-2">Policy</span>
@@ -48,31 +48,31 @@ export default function PrivacyPage() {
 
         <div className="bg-white dark:bg-slate-800 rounded-3xl p-8 sm:p-12 shadow-xl border border-slate-200 dark:border-slate-700 space-y-8">
           {/* Quick Summary */}
-          <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl p-6 mb-8">
+          <div className="bg-linear-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl p-6 mb-8">
             <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">
               🎯 Quick Summary
             </h3>
             <div className="grid sm:grid-cols-2 gap-4 text-sm">
               <div className="flex items-center space-x-2">
-                <Lock className="w-4 h-4 text-emerald-500" />
+                <FaLock className="w-4 h-4 text-emerald-500" />
                 <span className="text-slate-600 dark:text-slate-300">
                   Your content is never stored permanently
                 </span>
               </div>
               <div className="flex items-center space-x-2">
-                <Eye className="w-4 h-4 text-emerald-500" />
+                <FaEye className="w-4 h-4 text-emerald-500" />
                 <span className="text-slate-600 dark:text-slate-300">
                   No tracking or personal data collection
                 </span>
               </div>
               <div className="flex items-center space-x-2">
-                <Users className="w-4 h-4 text-emerald-500" />
+                <FaUsers className="w-4 h-4 text-emerald-500" />
                 <span className="text-slate-600 dark:text-slate-300">
                   No account creation required
                 </span>
               </div>
               <div className="flex items-center space-x-2">
-                <RefreshCw className="w-4 h-4 text-emerald-500" />
+                <FiRefreshCw className="w-4 h-4 text-emerald-500" />
                 <span className="text-slate-600 dark:text-slate-300">
                   Data deleted after processing
                 </span>

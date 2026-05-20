@@ -7,7 +7,7 @@ import { generatePromptStream } from "@/utils/api";
 import DotGrid from "@/components/DotGrid";
 import Link from "next/link";
 import Image from "next/image";
-import { CircleCheck, CopyIcon } from "lucide-react";
+import { FaCheckCircle, FaCopy } from "react-icons/fa";
 
 // Icon components
 const Sparkles = ({ className }: { className?: string }) => (
@@ -212,7 +212,7 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/30 to-purple-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800 relative">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 via-indigo-50/30 to-purple-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800 relative">
       {/* DotGrid Background - Updated to scroll with content */}
       <div
         className="absolute inset-0 w-full overflow-hidden pointer-events-none z-0"
@@ -246,9 +246,9 @@ export default function Home() {
             <div className="relative">
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
                 <span className="block mb-2">Transform Your Ideas Into</span>
-                <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent relative">
+                <span className="bg-linear-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent relative">
                   Perfect Prompts
-                  <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 blur-2xl -z-10 animate-pulse"></div>
+                  <div className="absolute -inset-4 bg-linear-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 blur-2xl -z-10 animate-pulse"></div>
                 </span>
               </h1>
             </div>
@@ -280,7 +280,7 @@ export default function Home() {
             {/* Input Section */}
             <div className="w-full lg:w-1/2 space-y-6">
               <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity" />
+                <div className="absolute -inset-1 bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity" />
                 <div className="relative bg-white dark:bg-slate-800 rounded-3xl p-8 sm:p-10 shadow-2xl shadow-slate-200/50 dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700">
                   <div className="mb-8">
                     <label
@@ -296,7 +296,7 @@ export default function Home() {
                         value={inputText}
                         onChange={(e) => setInputText(e.target.value)}
                         placeholder="Tell us what you want to create. For example: A blog post about sustainable living, a social media caption for a new product launch, or a creative story about time travel..."
-                        className="w-full h-48 px-6 py-5 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 border-2 border-slate-200 dark:border-slate-600 rounded-2xl resize-none focus:ring-4 focus:ring-indigo-500/30 focus:border-indigo-500 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 transition-all duration-300 text-base leading-relaxed shadow-inner scrollbar-thin scrollbar-thumb-slate-400 scrollbar-track-transparent hover:scrollbar-thumb-slate-500 dark:scrollbar-thumb-slate-500 dark:hover:scrollbar-thumb-slate-400"
+                        className="w-full h-48 px-6 py-5 bg-linear-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 border-2 border-slate-200 dark:border-slate-600 rounded-2xl resize-none focus:ring-4 focus:ring-indigo-500/30 focus:border-indigo-500 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 transition-all duration-300 text-base leading-relaxed shadow-inner scrollbar-thin scrollbar-thumb-slate-400 scrollbar-track-transparent hover:scrollbar-thumb-slate-500 dark:scrollbar-thumb-slate-500 dark:hover:scrollbar-thumb-slate-400"
                         style={{
                           scrollbarWidth: "thin",
                           scrollbarColor: "rgb(148 163 184) transparent",
@@ -315,9 +315,9 @@ export default function Home() {
                   <button
                     onClick={handleGenerate}
                     disabled={isLoading || !inputText.trim()}
-                    className="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-5 px-8 rounded-2xl flex items-center justify-center space-x-4 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/30 active:scale-[0.98] group relative overflow-hidden"
+                    className="w-full bg-linear-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-5 px-8 rounded-2xl flex items-center justify-center space-x-4 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/30 active:scale-[0.98] group relative overflow-hidden"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-linear-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     {isLoading ? (
                       <>
                         <Loader2 className="w-6 h-6 animate-spin" />
@@ -335,7 +335,7 @@ export default function Home() {
                   </button>
 
                   {error && (
-                    <div className="mt-6 bg-gradient-to-r from-red-50 to-rose-50 dark:from-red-900/20 dark:to-rose-900/20 border-2 border-red-200 dark:border-red-800 rounded-2xl p-5">
+                    <div className="mt-6 bg-linear-to-r from-red-50 to-rose-50 dark:from-red-900/20 dark:to-rose-900/20 border-2 border-red-200 dark:border-red-800 rounded-2xl p-5">
                       <p className="text-red-700 dark:text-red-400 font-semibold">
                         {error}
                       </p>
@@ -359,7 +359,7 @@ export default function Home() {
             {/* Output Section */}
             <div className="w-full lg:w-1/2 space-y-6">
               <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity" />
+                <div className="absolute -inset-1 bg-linear-to-r from-emerald-500 via-teal-500 to-cyan-500 rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity" />
                 <div className="relative bg-white dark:bg-slate-800 rounded-3xl p-8 sm:p-10 shadow-2xl shadow-slate-200/50 dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700">
                   <div className="flex items-center justify-between mb-6">
                     <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 flex items-center">
@@ -373,12 +373,12 @@ export default function Home() {
                       >
                         {copied ? (
                           <>
-                            <CircleCheck className="w-4 h-4 text-green-500 " />
+                            <FaCheckCircle className="w-4 h-4 text-green-500 " />
                             <span className="text-green-500">Copied!</span>
                           </>
                         ) : (
                           <>
-                            <CopyIcon className="w-4 h-4" />
+                            <FaCopy className="w-4 h-4" />
                             <span>
                               Copy{" "}
                               <span className="hidden sm:inline">Prompt</span>
@@ -391,28 +391,28 @@ export default function Home() {
 
                   {generatedPrompt ? (
                     <div
-                      className="bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-2xl p-6 border-2 border-slate-200 dark:border-slate-600 shadow-inner h-72 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-400 scrollbar-track-transparent hover:scrollbar-thumb-slate-500 dark:scrollbar-thumb-slate-500 dark:hover:scrollbar-thumb-slate-400"
+                      className="bg-linear-to-br from-slate-50 via-slate-100 to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-2xl p-6 border-2 border-slate-200 dark:border-slate-600 shadow-inner h-72 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-400 scrollbar-track-transparent hover:scrollbar-thumb-slate-500 dark:scrollbar-thumb-slate-500 dark:hover:scrollbar-thumb-slate-400"
                       style={{
                         scrollbarWidth: "thin",
                         scrollbarColor: "rgb(148 163 184) transparent",
                       }}
                     >
                       <div className="flex items-center space-x-3 mb-4">
-                        <div className="w-3 h-3 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
+                        <div className="w-3 h-3 bg-linear-to-r from-green-400 to-emerald-500 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
                         <span className="text-sm font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
                           Ready for Use
                         </span>
-                        <div className="flex-1 h-px bg-gradient-to-r from-slate-300 to-transparent dark:from-slate-600"></div>
+                        <div className="flex-1 h-px bg-linear-to-r from-slate-300 to-transparent dark:from-slate-600"></div>
                       </div>
                       <p className="text-slate-800 dark:text-slate-200 leading-relaxed whitespace-pre-wrap text-base font-medium">
                         {generatedPrompt}
                       </p>
                     </div>
                   ) : (
-                    <div className="px-2 bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 h-72 flex flex-col items-center justify-center text-center">
+                    <div className="px-2 bg-linear-to-br from-slate-50 via-slate-100 to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 h-72 flex flex-col items-center justify-center text-center">
                       <div className="relative mb-6">
                         <Sparkles className="w-16 h-16 text-slate-300 dark:text-slate-600" />
-                        <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-xl opacity-20 animate-pulse"></div>
+                        <div className="absolute inset-0 bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-xl opacity-20 animate-pulse"></div>
                       </div>
                       <p className="text-slate-600 dark:text-slate-400 font-semibold text-base mb-2">
                         Your AI-crafted prompt will appear here
@@ -429,7 +429,7 @@ export default function Home() {
 
           {/* Features Section */}
           <div className="relative mb-20">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 via-purple-500/5 to-pink-500/5 rounded-3xl blur-3xl"></div>
+            <div className="absolute inset-0 bg-linear-to-r from-indigo-500/5 via-purple-500/5 to-pink-500/5 rounded-3xl blur-3xl"></div>
             <div className="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-3xl p-12 sm:p-16 shadow-2xl shadow-slate-200/50 dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700">
               <div className="text-center mb-16">
                 <h2 className="text-4xl sm:text-5xl font-bold text-slate-800 dark:text-slate-200 mb-6">
@@ -445,11 +445,11 @@ export default function Home() {
                 {features.map((feature, index) => (
                   <div
                     key={index}
-                    className="group relative bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 p-8 rounded-3xl border-2 border-slate-200 dark:border-slate-600 hover:border-indigo-300 dark:hover:border-indigo-500 transition-all duration-500 hover:shadow-2xl hover:shadow-indigo-500/20 hover:-translate-y-2 transform"
+                    className="group relative bg-linear-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 p-8 rounded-3xl border-2 border-slate-200 dark:border-slate-600 hover:border-indigo-300 dark:hover:border-indigo-500 transition-all duration-500 hover:shadow-2xl hover:shadow-indigo-500/20 hover:-translate-y-2 transform"
                   >
-                    <div className="absolute -inset-1 bg-gradient-to-br opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-3xl blur-lg"></div>
+                    <div className="absolute -inset-1 bg-linear-to-br opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-3xl blur-lg"></div>
                     <div
-                      className={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-3xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl`}
+                      className={`w-16 h-16 bg-linear-to-br ${feature.gradient} rounded-3xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl`}
                     >
                       <div className="text-white text-2xl">{feature.icon}</div>
                     </div>
@@ -536,8 +536,8 @@ export default function Home() {
 
           {/* CTA Section */}
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl blur-3xl"></div>
-            <div className="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-12 sm:p-16 text-center text-white">
+            <div className="absolute inset-0 bg-linear-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl blur-3xl"></div>
+            <div className="relative bg-linear-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-12 sm:p-16 text-center text-white">
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
                 Ready to Transform Your Creativity?
               </h2>

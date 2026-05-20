@@ -7,7 +7,7 @@ const Sparkles = ({ className }: { className?: string }) => (
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-white/60 to-slate-50/60 dark:from-slate-900/60 dark:to-slate-800/60 backdrop-blur-xl border-t border-slate-200/60 dark:border-slate-700/60 ">
+    <footer className="bg-linear-to-r from-white/60 to-slate-50/60 dark:from-slate-900/60 dark:to-slate-800/60 backdrop-blur-xl border-t border-slate-200/60 dark:border-slate-700/60 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div className="md:col-span-2">
@@ -74,14 +74,6 @@ export default function Footer() {
                   className="text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-slate-100 transition-colors"
                 >
                   Features
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/api"
-                  className="text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-slate-100 transition-colors"
-                >
-                  API
                 </Link>
               </li>
             </ul>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Users, Target, Heart, Zap, Award, Globe } from "lucide-react";
 import Link from "next/link";
 import Squares from "@/components/Squares";
+import { FiGlobe, FiHeart, FiTarget, FiZap } from "react-icons/fi";
 
 export const metadata: Metadata = {
   title: "About PromptCue - Free AI Prompt Generator | Our Mission & Story",
@@ -62,7 +62,7 @@ export default function AboutPage() {
           <div className="text-center mb-20">
             <h1 className="flex flex-wrap items-center justify-center text-5xl sm:text-6xl font-bold text-slate-800 dark:text-slate-200 mb-4 text-center">
               <span className="pb-2">About</span>
-              <span className="pl-3 pb-2 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <span className="pl-3 pb-2 bg-linear-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 PromptCue
               </span>
             </h1>
@@ -94,7 +94,7 @@ export default function AboutPage() {
                   because we believe creativity shouldn't have a price tag.
                 </p>
                 <div className="flex items-center space-x-4">
-                  <Target className="w-6 h-6 text-indigo-500" />
+                  <FiTarget className="w-6 h-6 text-indigo-500" />
                   <span className="text-slate-700 dark:text-slate-300 font-medium">
                     Empowering 10,000+ creators worldwide
                   </span>
@@ -146,7 +146,7 @@ export default function AboutPage() {
               <div className="space-y-8">
                 {milestones.map((milestone, index) => (
                   <div key={index} className="flex items-start space-x-6">
-                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                    <div className="shrink-0 w-16 h-16 bg-linear-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
                       {milestone.year}
                     </div>
                     <div>
@@ -170,7 +170,7 @@ export default function AboutPage() {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-slate-200/50 dark:border-slate-700/50 hover:shadow-2xl transition-all duration-300 hover:scale-105">
                   <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-6">
-                    <Heart className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                    <FiHeart className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-4">
                     Accessibility First
@@ -184,7 +184,7 @@ export default function AboutPage() {
 
                 <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-slate-200/50 dark:border-slate-700/50 hover:shadow-2xl transition-all duration-300 hover:scale-105">
                   <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center mb-6">
-                    <Zap className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                    <FiZap className="w-6 h-6 text-purple-600 dark:text-purple-400" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-4">
                     Quality Over Everything
@@ -198,7 +198,7 @@ export default function AboutPage() {
 
                 <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-slate-200/50 dark:border-slate-700/50 hover:shadow-2xl transition-all duration-300 hover:scale-105">
                   <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center mb-6">
-                    <Globe className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                    <FiGlobe className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-4">
                     Community Driven
@@ -213,7 +213,7 @@ export default function AboutPage() {
             </section>
 
             {/* Team Section */}
-            <section className="bg-gradient-to-r from-indigo-600/90 via-purple-600/90 to-pink-600/90 backdrop-blur-sm rounded-3xl p-12 text-white border border-white/20">
+            <section className="bg-linear-to-r from-indigo-600/90 via-purple-600/90 to-pink-600/90 backdrop-blur-sm rounded-3xl p-12 text-white border border-white/20">
               <h2 className="text-4xl font-bold mb-12 text-center">
                 Meet Our Team
               </h2>
@@ -243,7 +243,7 @@ export default function AboutPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/"
-                  className="inline-block bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30"
+                  className="inline-block bg-linear-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30"
                 >
                   Start Creating Now
                 </Link>

@@ -1,16 +1,15 @@
 import Link from "next/link";
-import { Rabbit } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { PiRabbit } from "react-icons/pi";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen py-10 bg-gradient-to-br from-slate-50 via-indigo-50/30 to-purple-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800 flex items-center justify-center">
+    <div className="min-h-screen py-10 bg-linear-to-br from-slate-50 via-indigo-50/30 to-purple-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800 flex items-center justify-center">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Large Rabbit Icon */}
         <div className="mb-6 flex justify-center">
           <div className="relative">
-            <Rabbit className="w-36 h-36 sm:w-48 sm:h-48 text-indigo-500 dark:text-indigo-400" />
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 rounded-full blur-2xl -z-10 animate-pulse"></div>
+            <PiRabbit className="w-36 h-36 sm:w-48 sm:h-48 text-indigo-500 dark:text-indigo-400" />
+            <div className="absolute inset-0 bg-linear-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 rounded-full blur-2xl -z-10 animate-pulse"></div>
           </div>
         </div>
 
@@ -34,7 +33,7 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <Link
             href="/"
-            className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30"
+            className="bg-linear-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30"
           >
             Go Back Home
           </Link>

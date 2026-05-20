@@ -24,7 +24,7 @@ interface Dot {
   _inertiaApplied: boolean;
 }
 
-export interface DotGridProps {
+interface DotGridProps {
   dotSize?: number;
   gap?: number;
   baseColor?: string;

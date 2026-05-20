@@ -8,11 +8,9 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Security middleware
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
-// CORS configuration - only allow frontend
 app.use(
   cors({
     origin: process.env.FRONTEND_URL || "http://localhost:3000",
@@ -22,10 +20,9 @@ app.use(
   })
 );
 
-// Rate limiting - 10 requests per minute per IP
 const limiter = rateLimit({
-  windowMs: 60 * 1000, // 1 minute
-  max: 10, // limit each IP to 10 requests per windowMs
+  windowMs: 60 * 1000,
+  max: 10,
   message: {
     error: "Too many requests, please try again later.",
     retryAfter: 60,
@@ -36,11 +33,9 @@ const limiter = rateLimit({
 
 app.use("/api/generate", limiter);
 
-// Cache for storing generated prompts
 const promptCache = new Map();
-const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours
+const CACHE_DURATION = 24 * 60 * 60 * 1000;
 
-// System prompt for better prompt generation
 const SYSTEM_PROMPT = `You are an expert prompt engineering specialist designed to transform simple user inputs into comprehensive, well-crafted prompts for other AI systems. Your role is to analyze the user's input and generate a single, detailed prompt that another AI can use effectively to produce the desired output.
 
 CORE FUNCTIONALITY:
@@ -68,11 +63,9 @@ RESPONSE FORMAT:
 Provide only the generated prompt as continuous sentences organized into well-structured paragraphs. Do not include any meta-commentary, introductory text, or explanatory notes. The response should flow naturally and provide comprehensive guidance for the target AI system.
 `;
 
-// Helper function to clean generated prompts
 const cleanPrompt = (text) => {
   if (!text) return "";
 
-  // Remove common prefixes and explanations
   const cleaned = text
     .replace(
       /^Here's? a (comprehensive )?prompt based on the user's? input:\s*/i,
@@ -82,14 +75,13 @@ const cleanPrompt = (text) => {
     .replace(/^Here's? what I generated:\s*/i, "")
     .replace(/^Generated prompt:\s*/i, "")
     .replace(/^Prompt:\s*/i, "")
-    .replace(/^"([^"]+)"$/, "$1") // Remove surrounding quotes
-    .replace(/^'([^']+)'$/, "$1") // Remove surrounding single quotes
+    .replace(/^"([^"]+)"$/, "$1")
+    .replace(/^'([^']+)'$/, "$1")
     .trim();
 
   return cleaned;
 };
 
-// Health check endpoint
 app.get("/api/health", (req, res) => {
   res.json({ status: "healthy", timestamp: new Date().toISOString() });
 });
@@ -98,12 +90,9 @@ app.get("/", (req, res) => {
   res.json({ status: "healthy", timestamp: new Date().toISOString() });
 });
 
-// Streaming prompt generation endpoint
 app.post("/api/generate/stream", async (req, res) => {
   try {
     const { text, context = "" } = req.body;
-
-    // Input validation
     if (!text || typeof text !== "string") {
       return res.status(400).json({
         error: "Invalid input. Please provide a text description.",
@@ -116,7 +105,6 @@ app.post("/api/generate/stream", async (req, res) => {
       });
     }
 
-    // Set headers for streaming
     res.writeHead(200, {
       "Content-Type": "text/plain; charset=utf-8",
       "Transfer-Encoding": "chunked",
@@ -124,12 +112,9 @@ app.post("/api/generate/stream", async (req, res) => {
       Connection: "keep-alive",
     });
 
-    // Prepare the user message
     const userMessage = context
       ? `Context: ${context}\n\nUser Input: ${text}\n\nGenerate a single prompt.`
       : `User Input: ${text}\n\nGenerate a single prompt.`;
-
-    // Call Hugging Face API directly with streaming
     const response = await fetch(
       "https://router.huggingface.co/v1/chat/completions",
       {
@@ -149,7 +134,7 @@ app.post("/api/generate/stream", async (req, res) => {
               content: userMessage,
             },
           ],
-          model: "meta-llama/Llama-3.1-8B-Instruct:novita",
+          model: "deepseek-ai/DeepSeek-V4-Pro:novita",
           stream: true,
           max_tokens: 500,
           temperature: 0.7,
@@ -181,7 +166,6 @@ app.post("/api/generate/stream", async (req, res) => {
             const data = line.slice(6);
 
             if (data === "[DONE]") {
-              // Send completion signal
               res.write(
                 `data: ${JSON.stringify({
                   content: "",
@@ -199,7 +183,6 @@ app.post("/api/generate/stream", async (req, res) => {
                 const newContent = parsed.choices[0].delta?.content;
                 if (newContent) {
                   generatedPrompt += newContent;
-                  // Send the chunk to the frontend
                   res.write(
                     `data: ${JSON.stringify({
                       content: newContent,
@@ -208,9 +191,7 @@ app.post("/api/generate/stream", async (req, res) => {
                   );
                 }
               }
-            } catch (e) {
-              // Skip invalid JSON
-            }
+            } catch (e) {}
           }
         }
       }
@@ -220,7 +201,6 @@ app.post("/api/generate/stream", async (req, res) => {
   } catch (error) {
     console.error("Error generating prompt:", error);
 
-    // Send error to frontend
     res.write(
       `data: ${JSON.stringify({
         error: "Failed to generate prompt. Please try again.",
@@ -231,12 +211,9 @@ app.post("/api/generate/stream", async (req, res) => {
   }
 });
 
-// Main prompt generation endpoint (non-streaming for compatibility)
 app.post("/api/generate", async (req, res) => {
   try {
     const { text, context = "" } = req.body;
-
-    // Input validation
     if (!text || typeof text !== "string") {
       return res.status(400).json({
         error: "Invalid input. Please provide a text description.",
@@ -249,7 +226,6 @@ app.post("/api/generate", async (req, res) => {
       });
     }
 
-    // Check cache first
     const cacheKey = `${text}:${context}`;
     const cachedResult = promptCache.get(cacheKey);
     if (cachedResult && Date.now() - cachedResult.timestamp < CACHE_DURATION) {
@@ -260,12 +236,9 @@ app.post("/api/generate", async (req, res) => {
       });
     }
 
-    // Prepare the user message
     const userMessage = context
       ? `Context: ${context}\n\nUser Input: ${text}\n\nGenerate a single prompt.`
       : `User Input: ${text}\n\nGenerate a single prompt.`;
-
-    // Call Hugging Face API directly
     const response = await fetch(
       "https://router.huggingface.co/v1/chat/completions",
       {
@@ -285,7 +258,7 @@ app.post("/api/generate", async (req, res) => {
               content: userMessage,
             },
           ],
-          model: "meta-llama/Llama-4-Scout-17B-16E-Instruct:novita",
+          model: "deepseek-ai/DeepSeek-V4-Pro:novita",
           stream: false,
           max_tokens: 500,
           temperature: 0.7,
@@ -306,13 +279,11 @@ app.post("/api/generate", async (req, res) => {
       throw new Error("Failed to generate prompt");
     }
 
-    // Cache the result
     promptCache.set(cacheKey, {
       prompt: generatedPrompt,
       timestamp: Date.now(),
     });
 
-    // Clean old cache entries (older than 24 hours)
     const now = Date.now();
     for (const [key, value] of promptCache.entries()) {
       if (now - value.timestamp > CACHE_DURATION) {
@@ -346,7 +317,6 @@ app.post("/api/generate", async (req, res) => {
   }
 });
 
-// Error handling middleware
 app.use((err, req, res, next) => {
   console.error("Unhandled error:", err);
   res.status(500).json({
@@ -355,8 +325,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-// 404 handler
-app.use("*", (req, res) => {
+app.use((req, res) => {
   res.status(404).json({ error: "Endpoint not found" });
 });
 

@@ -43,7 +43,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2 sm:space-x-4">
             <div className="relative group">
-              <div className="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-xl shadow-indigo-500/25 group-hover:shadow-2xl group-hover:shadow-purple-500/30 transition-all duration-300">
+              <div className="bg-linear-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-xl shadow-indigo-500/25 group-hover:shadow-2xl group-hover:shadow-purple-500/30 transition-all duration-300">
                 <Image
                   src="/logo.png"
                   alt="PromptCue Logo"
@@ -52,10 +52,10 @@ export default function Header() {
                   className="sm:w-14 sm:h-14"
                 />
               </div>
-              <div className="absolute -inset-1 sm:-inset-2 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-2xl sm:rounded-3xl blur-lg opacity-20 group-hover:opacity-30 animate-pulse transition-opacity"></div>
+              <div className="absolute -inset-1 sm:-inset-2 bg-linear-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-2xl sm:rounded-3xl blur-lg opacity-20 group-hover:opacity-30 animate-pulse transition-opacity"></div>
             </div>
             <div>
-              <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-linear-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 PromptCue
               </h1>
               <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 tracking-widest uppercase hidden sm:block">
@@ -67,8 +67,8 @@ export default function Header() {
           {/* Mobile Status Indicator */}
           <div className="flex sm:hidden items-center space-x-2">
             <ThemeToggle />
-            <div className="flex items-center space-x-2 px-3 py-1 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl border border-green-200 dark:border-green-800">
-              <div className="w-2 h-2 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
+            <div className="flex items-center space-x-2 px-3 py-1 bg-linear-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl border border-green-200 dark:border-green-800">
+              <div className="w-2 h-2 bg-linear-to-r from-green-400 to-emerald-500 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
               <span className="text-xs font-semibold text-green-700 dark:text-green-300">
                 AI Active
               </span>
@@ -78,8 +78,8 @@ export default function Header() {
           {/* Desktop Status Indicator */}
           <div className="hidden sm:flex items-center space-x-4">
             <ThemeToggle />
-            <div className="flex items-center space-x-3 px-4 py-2 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl border border-green-200 dark:border-green-800">
-              <div className="w-3 h-3 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
+            <div className="flex items-center space-x-3 px-4 py-2 bg-linear-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl border border-green-200 dark:border-green-800">
+              <div className="w-3 h-3 bg-linear-to-r from-green-400 to-emerald-500 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
               <span className="text-sm font-semibold text-green-700 dark:text-green-300">
                 AI Neural Network Active
               </span>

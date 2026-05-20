@@ -1,30 +1,30 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://prompt-cue.vercel.app',
+      url: "https://prompt-cue.vercel.app",
       lastModified: new Date(),
-      changeFrequency: 'daily',
+      changeFrequency: "daily",
       priority: 1,
     },
     {
-      url: 'https://prompt-cue.vercel.app/about',
+      url: "https://prompt-cue.vercel.app/about",
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: 'https://prompt-cue.vercel.app/privacy',
+      url: "https://prompt-cue.vercel.app/privacy",
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: "yearly",
       priority: 0.5,
     },
     {
-      url: 'https://prompt-cue.vercel.app/terms',
+      url: "https://prompt-cue.vercel.app/terms",
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: "yearly",
       priority: 0.5,
     },
-  ]
-} 
+  ];
+}

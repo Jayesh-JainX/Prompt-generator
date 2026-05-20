@@ -24,7 +24,7 @@ export default function LoadingSpinner() {
 
   return (
     <div
-      className={`fixed inset-0 z-50 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900 flex items-center justify-center transition-opacity duration-300 ${
+      className={`fixed inset-0 z-50 bg-linear-to-br from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900 flex items-center justify-center transition-opacity duration-300 ${
         isFading ? "opacity-0" : "opacity-100"
       }`}
     >
@@ -56,7 +56,7 @@ export default function LoadingSpinner() {
           {[0, 0.2, 0.4].map((delay, index) => (
             <div
               key={index}
-              className="w-3 h-3 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full animate-bounce"
+              className="w-3 h-3 bg-linear-to-r from-indigo-500 to-blue-500 rounded-full animate-bounce"
               style={{
                 animationDelay: `${delay}s`,
                 animationDuration: "1.4s",
