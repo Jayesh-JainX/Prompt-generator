@@ -100,12 +100,6 @@ npm run dev
 - **Storage**: In-memory Map
 - **Cleanup**: Automatic removal of expired entries
 
-### Security
-
-- **CORS**: Restricted to frontend URL
-- **Input Validation**: Text length and type checking
-- **Error Handling**: Comprehensive error responses
-
 ## 💡 Usage Guide
 
 1. **Enter Your Idea**: Describe what you want to create in the text area
