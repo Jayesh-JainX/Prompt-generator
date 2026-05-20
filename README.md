@@ -56,18 +56,6 @@ cd backend
 npm install
 ```
 
-Create a `.env` file in the backend directory:
-
-```env
-HF_TOKEN=your_huggingface_token_here
-PORT=5000
-NODE_ENV=development
-FRONTEND_URL=http://localhost:3000
-RATE_LIMIT_WINDOW_MS=60000
-RATE_LIMIT_MAX_REQUESTS=10
-CACHE_DURATION_HOURS=24
-```
-
 **Get your Hugging Face token:**
 
 1. Go to https://huggingface.co/settings/tokens
@@ -98,38 +86,6 @@ npm run dev
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:5000
 
-## 📚 API Documentation
-
-### POST /api/generate
-
-Generate a prompt from user input.
-
-**Request Body:**
-
-```json
-{
-  "text": "A futuristic cityscape with flying cars"
-}
-```
-
-**Response:**
-
-```json
-{
-  "prompt": "Create a stunning futuristic cityscape featuring sleek flying cars soaring through neon-lit skyscrapers, with a cyberpunk aesthetic and high-resolution digital art style.",
-  "cached": false,
-  "timestamp": 1703123456789
-}
-```
-
-### POST /api/generate/stream
-
-Generate a prompt with streaming response.
-
-### GET /api/health
-
-Health check endpoint for monitoring.
-
 ## ⚙️ Configuration
 
 ### Rate Limiting
@@ -150,102 +106,12 @@ Health check endpoint for monitoring.
 - **Input Validation**: Text length and type checking
 - **Error Handling**: Comprehensive error responses
 
-## 🔧 Environment Variables
-
-### Backend (.env)
-
-| Variable                  | Description             | Default               |
-| ------------------------- | ----------------------- | --------------------- |
-| `HF_TOKEN`                | Hugging Face API token  | Required              |
-| `PORT`                    | Server port             | 3001                  |
-| `NODE_ENV`                | Environment mode        | development           |
-| `FRONTEND_URL`            | Frontend URL for CORS   | http://localhost:3000 |
-| `RATE_LIMIT_WINDOW_MS`    | Rate limit window (ms)  | 60000                 |
-| `RATE_LIMIT_MAX_REQUESTS` | Max requests per window | 10                    |
-| `CACHE_DURATION_HOURS`    | Cache duration in hours | 24                    |
-
 ## 💡 Usage Guide
 
 1. **Enter Your Idea**: Describe what you want to create in the text area
 2. **Generate Prompt**: Click the "Generate Prompt" button
 3. **Copy Result**: Use the copy button to copy the generated prompt
 4. **Use Anywhere**: Paste the prompt into any AI model or image generator
-
-## 📝 Examples
-
-### Input
-
-```
-A cat playing with a ball of yarn
-```
-
-### Generated Prompt
-
-```
-Create a charming illustration of a playful cat engaging with a colorful ball of yarn, capturing the feline's natural curiosity and playful energy in a warm, inviting art style suitable for children's books or greeting cards.
-```
-
-### Input
-
-```
-A futuristic cityscape with flying cars
-```
-
-### Generated Prompt
-
-```
-Create a stunning futuristic cityscape featuring sleek flying cars soaring through neon-lit skyscrapers, with a cyberpunk aesthetic and high-resolution digital art style.
-```
-
-## 🏗️ Project Structure
-
-```
-prompt-generator/
-├── backend/                 # Express.js API server
-│   ├── index.js            # Main server file
-│   ├── package.json        # Backend dependencies
-│   └── README.md           # Backend documentation
-├── frontend/               # Next.js application
-│   ├── app/                # App Router pages
-│   ├── components/         # React components
-│   ├── lib/                # Utility functions
-│   ├── public/             # Static assets
-│   ├── package.json        # Frontend dependencies
-│   └── README.md           # Frontend documentation
-└── README.md               # Main project documentation
-```
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **Hugging Face Token Error**
-
-   - Ensure your token is valid and has read permissions
-   - Check that the token is correctly set in the `.env` file
-
-2. **CORS Errors**
-
-   - Verify the `FRONTEND_URL` in your backend `.env` file
-   - Ensure both frontend and backend are running
-
-3. **Rate Limiting**
-
-   - The API allows 10 requests per minute per IP
-   - Wait for the rate limit window to reset
-
-4. **Port Conflicts**
-   - Backend runs on port 3001 by default
-   - Frontend runs on port 3000 by default
-   - Change ports in `.env` files if needed
-
-## 📞 Support
-
-For support and questions:
-
-- Open an issue in the repository
-- Check the troubleshooting section above
-- Review the API documentation
 
 ---
 
